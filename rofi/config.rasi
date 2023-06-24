@@ -1,0 +1,89 @@
+configuration {
+  display-drun: "Applications:";
+  show-icons: true;
+  icon-theme: "Adwaita";
+  display-window: "Windows:";
+  drun-display-format: "{name}";
+  font: "Fira Code Nerd Font Regular 16";
+
+}
+
+@theme "/dev/null"
+
+* {
+
+  bg:     #0000005a;
+  bg-alt: #585b7066;
+  bg-selected: #31324466;
+
+  fg: #cdd6f4;
+
+  fg-alt: #cdd6f4;
+  //fg-alt: #20c20e;
+
+
+  border: 0;
+  margin: 0;
+  padding: 2;
+  spacing: 2;
+}
+
+window {
+  width: 50%;
+  background-color: @bg;
+  height: 50%;
+}
+
+element {
+  padding: 8 12;
+  background-color: transparent;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg-alt;
+  background-color: @bg-selected;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+  padding: 0 10 0 0;
+  background-color: transparent;
+}
+
+entry {
+  padding: 12;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+/* vim: ft=sass
