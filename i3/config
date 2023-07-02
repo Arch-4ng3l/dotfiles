@@ -214,7 +214,7 @@ client.focused_inactive #333333 #333333 #333333 #333333
 client.unfocused #222222 #222222 #888888 #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
 
-default_border pixel 2
+default_border pixel 1
 
 exec_always feh --bg-fill $HOME/Downloads/wallpaper6.jpg
 
@@ -222,5 +222,5 @@ exec_always feh --bg-fill $HOME/Downloads/wallpaper6.jpg
 exec_always --no-startup-id picom &
 
 
-bindsym $mod+Shift+s exec flameshot gui
+bindsym Ctrl+Shift+s exec flameshot gui
 
