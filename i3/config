@@ -121,7 +121,7 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "69"
 set $ws10 "10"
 
 # switch to workspace
@@ -154,7 +154,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+e exec emacsclient -c -a 'emacs'
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -188,8 +187,8 @@ bar {
     hidden_state show
     modifier Mod4
     status_command i3blocks -c .config/i3blocks/config
-    Position top
-    font pango:"FiraCode Nerd Font Regular", Solid 10
+    Position bottom
+    font pango:"FiraCode Nerd Font Bold", Solid 12
     separator_symbol "  /  "
     height 20
     workspace_buttons yes
@@ -209,6 +208,7 @@ bar {
 set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color2
 
+
 client.focused #9800f9c6 #9800f9c6 #9800f9c6 #9800f9c6
 client.focused_inactive #333333 #333333 #333333 #333333
 client.unfocused #222222 #222222 #888888 #292d2e
@@ -218,7 +218,9 @@ default_border pixel 2
 
 exec_always feh --bg-fill $HOME/Downloads/wallpaper6.jpg
 
-gaps inner 5
-gaps outer 15
 
 exec_always --no-startup-id picom &
+
+
+bindsym $mod+Shift+s exec flameshot gui
+
