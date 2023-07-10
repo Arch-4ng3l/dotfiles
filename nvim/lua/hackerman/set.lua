@@ -8,6 +8,8 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 
+vim.opt.termguicolors = true
+
 
 vim.api.nvim_exec([[
   augroup FileTypeIndent
