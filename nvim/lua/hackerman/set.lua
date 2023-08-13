@@ -1,42 +1,52 @@
 vim.opt.guicursor = ""
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.tabstop = 4
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 4
+
+vim.opt.shiftwidth = 4
+
 vim.opt.smartindent = true
+
+vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
-
-vim.api.nvim_exec([[
-  augroup FileTypeIndent
-    autocmd!
-    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-    autocmd FileType lua setlocal expandtab shiftwidth=8 tabstop=8
-  augroup END
-]], true)
-
-
-
 vim.opt.wrap = false
 
-vim.g.mapleader = " "
 
 vim.opt.scrolloff = 12
 
-
 vim.opt.swapfile = false
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.o.hlsearch = false
 
+vim.wo.relativenumber = true
+vim.o.clipboard = 'unnamedplus'
 
+-- Enable break indent
+vim.o.breakindent = true
 
+-- Save undo history
+vim.o.undofile = true
 
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.wo.signcolumn = 'yes'
 
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
+vim.o.completeopt = 'menuone,noselect'
 
-
-
-
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
