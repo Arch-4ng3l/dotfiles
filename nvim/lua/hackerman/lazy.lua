@@ -31,22 +31,39 @@ require('lazy').setup({
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
+  --{
+  --  -- LSP Configuration & Plugins
+  --  'neovim/nvim-lspconfig',
+  --  dependencies = {
+  --    -- Automatically install LSPs to stdpath for neovim
+  --    { 'williamboman/mason.nvim', config = true },
+  --    'williamboman/mason-lspconfig.nvim',
+
+  --    -- Useful status updates for LSP
+  --    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+  --    { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+
+  --    -- Additional lua configuration, makes nvim stuff amazing!
+  --    'folke/neodev.nvim',
+  --  },
+  --},
+
   {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+    }
   },
+
 
   {
     -- Autocompletion
@@ -74,7 +91,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -117,6 +134,10 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
   },
   {
+    'rose-pine/neovim',
+  },
+
+  {
     "ray-x/go.nvim",
     dependencies = {  -- optional packages
       "ray-x/guihua.lua",
@@ -129,7 +150,17 @@ require('lazy').setup({
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
   }
+
 
 
 }, {})

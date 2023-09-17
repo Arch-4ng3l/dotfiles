@@ -26,13 +26,10 @@ vim.o.hlsearch = false
 vim.wo.relativenumber = true
 vim.o.clipboard = 'unnamedplus'
 
--- Enable break indent
 vim.o.breakindent = true
 
--- Save undo history
 vim.o.undofile = true
 
--- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
@@ -50,3 +47,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+

@@ -16,3 +16,28 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.cmd('command! Fr  FlutterRun')
+
+
+
+local group = vim.api.nvim_create_augroup("My Group", {clear = true})
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = group,
+  pattern = "*.dart",
+  callback = function ()
+    vim.cmd('FlutterRestart')
+    vim.fn.jobstart("FlutterRestart")
+  end,
+})
+
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  group = group,
+  callback = function ()
+    vim.cmd('FlutterQuit')
+    vim.fn.jobstart("FlutterQuit")
+  end,
+})
+
+
