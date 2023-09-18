@@ -55,8 +55,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+f exec firefox
 # start dmenu (a program launcher)
 
-# bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -117,7 +117,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5" 
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -162,10 +162,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -184,22 +184,18 @@ bindsym $mod+r mode "resize"
 
 bar {
     mode dock
-    hidden_state show
-    modifier Mod4
     status_command i3blocks -c .config/i3blocks/config
     Position bottom
-    font pango:"FiraCode Nerd Font Bold", Solid 12
-    separator_symbol "  /  "
-    height 20
     workspace_buttons yes
 
   colors {
-    separator #666666
-    background #151226
+    separator #ffffff
+    background #1e1e1e
     statusline #ffffff
-    focused_workspace #551a8b #551a8b #ffffff #151718 active_workspace #333333 #5f676a #ffffff #151718
-    inactive_workspace #000000 #000000 #888888 #AAAAAA
-    urgent_workspace #2f343a #900000 #ffffff #FFFFFF
+
+
+
+
   }
 }
 
@@ -209,15 +205,15 @@ set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color2
 
 
-client.focused #9800f9c6 #9800f9c6 #9800f9c6 #9800f9c6
-client.focused_inactive #333333 #333333 #333333 #333333
-client.unfocused #222222 #222222 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
 
 default_border pixel 1
 
-exec_always feh --bg-fill $HOME/Downloads/wallpaper6.jpg
+exec_always feh --bg-fill $HOME/Downloads/wallpaper13.jpg
 
+
+#gaps inner 10
+#gaps outer 10
+#
 
 exec_always --no-startup-id picom &
 
