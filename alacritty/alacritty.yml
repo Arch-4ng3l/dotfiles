@@ -21,14 +21,30 @@ window:
   opacity: 1
 
 font:
+  features:
+    - Ligatures
 
   normal:
-    family: "Fira Code Nerd Font Propo"
-
+    family: JetBrainsMono Nerd Font
     style: Regular
+
   bold:
-    family: "Fira Code Nerd Font Propo"
+    family: JetBrainsMono Nerd Font
     style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+      #  normal:
+      #    family: "Fira Code Nerd Font Propo"
+      #
+      #    style: Regular
+      #  bold:
+      #    family: "Fira Code Nerd Font Propo"
+      #    style: Bold
 
   size: 14.0
 
