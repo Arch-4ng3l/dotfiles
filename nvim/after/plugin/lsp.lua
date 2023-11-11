@@ -60,9 +60,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 
-
-lsp.setup_servers({'dartls', force = true})
-
+lsp.setup_servers({'pyright', force = true})
 
 lsp.setup()
 
