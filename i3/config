@@ -12,7 +12,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font Regular 
+font pango:JetBrains Mono Nerd Font Regular 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -193,9 +193,6 @@ bar {
     background #1e1e1e
     statusline #ffffff
 
-
-
-
   }
 }
 
@@ -206,17 +203,16 @@ set_from_resource $bg i3wm.color2
 
 
 
-default_border pixel 1
 
 exec_always feh --bg-fill $HOME/Downloads/wallpaper13.jpg
 
 
-#gaps inner 10
-#gaps outer 10
-#
-
-exec_always --no-startup-id picom &
-
+gaps inner 10
+default_border pixel 1
+new_window pixel 1
+for_window [class="^.*"] border pixel 1
+hide_edge_borders both
+new_window pixel 1
 
 bindsym Ctrl+Shift+s exec flameshot gui
 

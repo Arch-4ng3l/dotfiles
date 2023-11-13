@@ -69,5 +69,3 @@ vim.diagnostic.config({
 })
 
 require'lspconfig'.ocamllsp.setup{}
-
-require("flutter-tools").setup {}

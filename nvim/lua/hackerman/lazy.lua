@@ -130,16 +130,14 @@ require('lazy').setup({
     "folke/tokyonight.nvim",
   },
   {
-    -- Theme inspired by Atom
     'navarasu/onedark.nvim',
   },
   {
     'rose-pine/neovim',
   },
-
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    dependencies = {
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
@@ -149,19 +147,21 @@ require('lazy').setup({
     end,
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  },
-  {
-    'akinsho/flutter-tools.nvim',
-    lazy = false,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim', -- optional for vim.ui.select
-    },
-    config = true,
+    build = ':lua require("go.install").update_all_sync()'
   },
   {
     'lervag/vimtex'
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin"
+  },
+  {
+    'andweeb/presence.nvim'
   }
 
 
