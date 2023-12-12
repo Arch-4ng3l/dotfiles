@@ -1,5 +1,10 @@
 require('telescope').setup {
   defaults = {
+    file_ignore_patterns = {
+      "./*.png",
+      "./*.jpg",
+      "__pycache__/*",
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,

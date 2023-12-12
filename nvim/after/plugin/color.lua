@@ -1,23 +1,14 @@
-require("tokyonight").setup({
-        style = "night",
-        transparent = true,
-        disable_background = true
-})
-
-require("catppuccin").setup({
-        transparent = true,
-        disable_background = true
-})
-
 require('rose-pine').setup({
-    disable_background = true
+        disable_background = true,
+        disable_float_background = true,
+        disable_italics = true,
 })
 
-function Color(color)
-        --color = color or "rose-pine"
-        color = color or "catppuccin"
-
-        vim.cmd.colorscheme(color)
+function Color()
+        vim.cmd.colorscheme("rose-pine")
+        vim.cmd(
+                "highlight Comment ctermfg=green"
+        )
 end
 
 Color()

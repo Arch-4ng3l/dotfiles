@@ -2,21 +2,17 @@
 local lsp = require("lsp-zero").preset("recommended")
 lsp.nvim_workspace()
 local cmp = require("cmp")
+cmp.setup({enabled = false})
 
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
+-- local cmp_select = {behavior = cmp.SelectBehavior.Select}
+-- local cmp_mappings = lsp.defaults.cmp_mappings({
+--   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+--   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+--   ["<C-Space>"] = cmp.mapping.complete(),
+-- })
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
@@ -29,7 +25,10 @@ lsp.set_preferences({
 })
 -- This function gets run when an LSP connects to a particular buffer.
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = {
+    buffer = bufnr,
+    remap = false
+  }
 
   local nmap = function(keys, func, desc)
     if desc then
@@ -57,15 +56,12 @@ lsp.on_attach(function(client, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 
+
 end)
-
-
-lsp.setup_servers({'pyright', force = true})
 
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = false
 })
 
-require'lspconfig'.ocamllsp.setup{}

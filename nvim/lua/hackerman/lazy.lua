@@ -65,42 +65,6 @@ require('lazy').setup({
   },
 
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
-
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'tokyonight',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -127,43 +91,7 @@ require('lazy').setup({
   },
 
   {
-    "folke/tokyonight.nvim",
-  },
-  {
-    'navarasu/onedark.nvim',
-  },
-  {
     'rose-pine/neovim',
   },
-  {
-    "ray-x/go.nvim",
-    dependencies = {
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("go").setup()
-    end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()'
-  },
-  {
-    'lervag/vimtex'
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-  },
-
-  {
-    "catppuccin/nvim",
-    name = "catppuccin"
-  },
-  {
-    'andweeb/presence.nvim'
-  }
-
-
 
 }, {})
